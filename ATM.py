@@ -2,6 +2,25 @@ class Atm:
 	def __init__(self):
 		self.pin=3245
 		self.balance=50000
+
+
+	def Login(self):
+		print("Scan your card and enter your pin code to login..")
+
+		i=1
+		while i<=5:
+			print("Type 5 for quit program ")
+			pin_code=int(input("Enter login pin: "))
+			if pin_code==self.pin:
+				main()
+			elif pin_code==5:
+				print("Thanks for using our service..")
+				break
+			else:
+				print("Wrong Pin ❌ \n")
+				i+=1
+		print("You have exceeded the maximum number of attempts. Please try again later. ❌ \n")
+			
 	
 	
 	
@@ -34,15 +53,19 @@ class Atm:
 	
 	
 	def Change_pin(self):
-		old_pin=int(input("Enter Old Pin code : "))
+		i=1
+		while i<=3:
+			old_pin=int(input("Enter Old Pin code : "))
 		
-		if old_pin==self.pin:
-			new_pin=int(input("Enter New Pin: "))
-			if 1000 <= new_pin <=9999:
-				self.pin=new_pin
-				print("Pin Changed Sucessfully✅")
-		else:
-			print("Wrong Pin..❌")
+			if old_pin==self.pin:
+				new_pin=int(input("Enter New Pin: "))
+				if 1000 <= new_pin <=9999:
+					self.pin=new_pin
+					print("Pin Changed Sucessfully✅")
+			else:
+				print("Wrong Pin..❌")
+				i+=1
+		print("You have exceeded the maximum number of attempts. Please try again later. ❌ \n")
 			
 	
 	
@@ -84,17 +107,4 @@ def main():
 
 
 obj=Atm()
-def Login():
-	print("Scan your card and enter your pin code to login..")
-	while True:
-		print("Type 0 for quit program ")
-		
-		pin_code=int(input("Enter login pin: "))
-		if pin_code==obj.pin:
-			main()
-		elif pin_code==0:
-			print("Thanks for using our service..")
-			break
-		else:
-			print("Wrong Pin")
-Login()
+obj.Login()
