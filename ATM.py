@@ -5,16 +5,16 @@ class Atm:
 
 
 	def Login(self):
-		print("Scan your card and enter your pin code to login..")
+		print("Scan your card and enter your pin code to login..\n")
 
 		i=1
 		while i<=5:
-			print("Type 5 for quit program ")
+			print("Type 5 for quit program \n  ")
 			pin_code=int(input("Enter login pin: "))
 			if pin_code==self.pin:
 				main()
 			elif pin_code==5:
-				print("Thanks for using our service..")
+				print("Thanks for using our service..\n")
 				break
 			else:
 				print("Wrong Pin ❌ \n")
@@ -32,39 +32,74 @@ class Atm:
 	
 	
 	def deposit_money(self):
+
 		Amount=int(input("Enter amount  to deposit: "))
+
 		if Amount <=0:
 			print("Invalid amount. Please enter a Positive amount ❌ \n ")
+
+
 		self.balance+=Amount
-		print("Deposit Done succesfully ✅ \n")
+
+
+		print("Deposit Done succesfully ✅")
+		print("================================================>")
+		print(f"Deposit Amount: {Amount}")
+		print("================================================>")
+		print(f"Balance: Rs.{self.balance}")
+		print("================================================>\n")
 	
 	
-	
+
 	def withdrawl_money(self):
+
 		Amount=int(input("Enter Amount of withdrawl: "))
+
 		if Amount > self.balance:
 			print("Insufficient Balance ❌ \n")
+
 		elif Amount <= 0:
 			print("Invalid amount. Please enter a positive value. ❌ \n")
+
 		else:
+
 			self.balance-=Amount
-			print("Withdrawl Done Successfully ✅ \n")
+
+			print("Withdrawl Done Successfully ✅")
+			print("================================================>")
+			print(f"Withdrawl Amount: {Amount}")
+			print("================================================>")
+			print(f"Balance: Rs.{self.balance}")
+			print("================================================>\n")
+
 		
 	
 	
 	def Change_pin(self):
+
 		i=1
+
 		while i<=3:
+
 			old_pin=int(input("Enter Old Pin code : "))
 		
+
 			if old_pin==self.pin:
+
 				new_pin=int(input("Enter New Pin: "))
+
 				if 1000 <= new_pin <=9999:
+
 					self.pin=new_pin
+
 					print("Pin Changed Sucessfully✅")
+
 			else:
+
 				print("Wrong Pin..❌")
+
 				i+=1
+
 		print("You have exceeded the maximum number of attempts. Please try again later. ❌ \n")
 			
 	
@@ -102,7 +137,7 @@ def main():
 			obj.Change_pin()
 		
 		elif choice==5:
-			print("Thanks for using our service..")
+			print("Thanks for using our service..\n")
 			break
 
 
