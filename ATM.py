@@ -15,7 +15,8 @@ class Atm:
 	
 	def deposit_money(self):
 		Amount=int(input("Enter amount  to deposit: "))
-		
+		if Amount <=0:
+			print("Invalid amount. Please enter a Positive amount ❌ \n ")
 		self.balance+=Amount
 		print("Deposit Done succesfully ✅ \n")
 	
@@ -23,9 +24,13 @@ class Atm:
 	
 	def withdrawl_money(self):
 		Amount=int(input("Enter Amount of withdrawl: "))
-		
-		self.balance-=Amount
-		print("Withdrawl Done Successfully ✅ \n")
+		if Amount > self.balance:
+			print("Insufficient Balance ❌ \n")
+		elif Amount <= 0:
+			print("Invalid amount. Please enter a positive value. ❌ \n")
+		else:
+			self.balance-=Amount
+			print("Withdrawl Done Successfully ✅ \n")
 		
 	
 	
@@ -34,8 +39,9 @@ class Atm:
 		
 		if old_pin==self.pin:
 			new_pin=int(input("Enter New Pin: "))
-			self.pin=new_pin
-			print("Pin Changed Sucessfully✅")
+			if 1000 <= new_pin <=9999:
+				self.pin=new_pin
+				print("Pin Changed Sucessfully✅")
 		else:
 			print("Wrong Pin..❌")
 			
