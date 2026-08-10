@@ -1,18 +1,20 @@
 class Atm:
 	def __init__(self):
+		print("Scan your card and enter your pin code to login..")
 		self.pin=3245
 		self.balance=50000
 	
 	
 	
 	def check_balance(self):
-		print(f"Your Balance is {self.balance}\n")
+		print(f"Your Current Balance is {self.balance}\n")
+		
 	
 		
 	
 	
 	def deposit_money(self):
-		Amount=int(input("Enter amount you want to deposit: "))
+		Amount=int(input("Enter amount  to deposit: "))
 		
 		self.balance+=Amount
 		print("Deposit Done succesfully ✅ \n")
@@ -23,7 +25,7 @@ class Atm:
 		Amount=int(input("Enter Amount of withdrawl: "))
 		
 		self.balance-=Amount
-		print("Withdrawl Donr Sucessfully ✅ \n")
+		print("Withdrawl Done Successfully ✅ \n")
 		
 	
 	
@@ -66,20 +68,20 @@ def main():
 			obj.Change_pin()
 		
 		elif choice==5:
-			print("Program Ends..")
+			print("Thanks for using our service..")
 			break
 
 
 obj=Atm()
 def Login():
 	while True:
-		print("Type 0000 for quit program ")
+		print("Type 0 for quit program ")
 		
 		pin_code=int(input("Enter login pin: "))
 		if pin_code==obj.pin:
 			main()
-		elif pin_code==0000:
-			print("Thanks for using program..")
+		elif pin_code==0:
+			print("Thanks for using our service..")
 			break
 		else:
 			print("Wrong Pin")
